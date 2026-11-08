@@ -1,41 +1,31 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Arrow from '../components/Arrow.astro';
 import ContactBanner from '../components/ContactBanner.astro';
+import PhotoHero from '../components/PhotoHero.astro';
 import home from '../content/home.json';
 import { url } from '../lib/urls';
 ---
-<Layout title="Ascolto, sostegno e nuove possibilità" description={home.intro}>
-  <section class="hero" aria-labelledby="hero-title">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <p class="eyebrow"><span class="small-line" aria-hidden="true"></span>{home.eyebrow}</p>
-        <h1 id="hero-title">{home.title}</h1>
-        <p class="hero-intro">{home.intro}</p>
-        <div class="flex flex-wrap items-center gap-5"><a class="button button-dark" href={url('contacts/')}>Iniziamo a conoscerci <Arrow /></a><a class="text-link" href={url('services/')}>Come posso aiutarti</a></div>
-        <p class="hero-note">In presenza e online, su appuntamento.</p>
-      </div>
-      <figure class="hero-image"><img src={url('images/hero.jpg')} alt="Erika insieme a una bambina, in un momento di vicinanza e ascolto" width="1486" height="991" fetchpriority="high" /><figcaption>Ascoltare. Accogliere. Costruire possibilità.</figcaption></figure>
+<Layout title="Assistenza sociale, famiglia e inclusione" description={home.intro}>
+  <PhotoHero image="hero.jpg" quote={home.quote} position="center 55%" />
+  <section class="feature-section" aria-labelledby="connections-title">
+    <div class="wide-container feature-grid">
+      <img class="feature-photo" src={url('images/erika.jpg')} alt="Erika Masotti" width="762" height="1141" loading="lazy" />
+      <div class="feature-copy"><h2 id="connections-title">“{home.aboutTitle} {home.aboutSubtitle}”</h2><p>{home.intro}</p><a class="button button-light" href={url('services/')}>Scopri di più<span class="sr-only"> sui servizi</span></a></div>
     </div>
   </section>
-  <div class="quote-strip"><div class="container"><p>«{home.quote}»</p><span aria-hidden="true">✳</span></div></div>
-  <section class="section about-section" aria-labelledby="about-title">
-    <div class="container about-grid">
-      <figure class="portrait-frame"><img src={url('images/erika.jpg')} alt="Erika Masotti" width="762" height="1141" loading="lazy" /><figcaption>Erika Masotti <span>Assistente sociale</span></figcaption></figure>
-      <div class="about-copy"><p class="eyebrow">Una persona, prima di una professionista</p><h2 id="about-title">{home.aboutTitle}<br /><em>{home.aboutSubtitle}</em></h2><p>{home.aboutText}</p><p>Trovo dove c’è il cortocircuito e ti aiuto a ritrovare la luce. Con attenzione alla tua storia e alle tue possibilità.</p><a class="text-link arrow-link" href={url('about/')}>Ti racconto chi sono <Arrow /></a></div>
+  <section class="feature-section" aria-labelledby="together-title">
+    <div class="wide-container feature-grid feature-reverse">
+      <div class="feature-copy"><h2 id="together-title">“{home.approachTitle}”</h2><p>{home.listeningIntro}</p><a class="button button-light" href={url('services/')}>Scopri di più<span class="sr-only"> sul percorso</span></a></div>
+      <img class="feature-photo" src={url('images/ascolto.png')} alt="Ritratto introspettivo di Erika in bianco e nero" width="709" height="1063" loading="lazy" />
     </div>
   </section>
   <section class="section services-section" aria-labelledby="services-title">
-    <div class="container">
-      <div class="section-intro"><div><p class="eyebrow">Come posso aiutarti</p><h2 id="services-title">{home.servicesTitle}</h2></div><p>{home.servicesIntro}</p></div>
-      <div class="services-grid">{home.services.map((service, i) => <article class="service-item"><span class="service-number" aria-hidden="true">0{i + 1}</span><h3>{service.title}</h3><p>{service.description}</p></article>)}</div>
-      <a class="text-link arrow-link services-link" href={url('services/')}>Scopri i servizi e i progetti <Arrow /></a>
-    </div>
-  </section>
-  <section class="section approach-section" aria-labelledby="approach-title">
-    <div class="container approach-grid">
-      <div><p class="eyebrow">Un percorso costruito insieme</p><h2 id="approach-title">{home.approachTitle}</h2><p>{home.approachIntro}</p><a class="text-link arrow-link" href={url('services/#percorso')}>Il mio modo di lavorare <Arrow /></a></div>
-      <ol class="steps">{home.steps.map((step, i) => <li><span class="step-number" aria-hidden="true">0{i + 1}</span><div><h3>{step.title}</h3><p>{step.text}</p></div></li>)}</ol>
+    <div class="wide-container">
+      <div class="section-intro"><h2 id="services-title">Un percorso costruito insieme</h2><p>{home.approachIntro}</p></div>
+      <div class="service-layout">
+        <img class="services-photo" src={url('images/percorso.jpg')} alt="Erika Masotti, ritratta di profilo" width="618" height="942" loading="lazy" />
+        <div class="services-grid">{home.services.map((service, i) => <article class="service-item"><span class="service-number" aria-hidden="true">0{i + 1}</span><h3>{service.title}</h3><p>{service.description}</p><ul>{service.points.map(point => <li>{point}</li>)}</ul></article>)}</div>
+      </div>
     </div>
   </section>
   <ContactBanner />

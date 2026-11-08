@@ -2,8 +2,8 @@
 import '../styles/global.css';
 import site from '../content/site.json';
 import { url } from '../lib/urls';
-interface Props { title: string; description: string; }
-const { title, description } = Astro.props;
+interface Props { title: string; description: string; photoHeader?: boolean; }
+const { title, description, photoHeader = true } = Astro.props;
 const nav = [{ label: 'Home', path: '' }, { label: 'Chi sono', path: 'about/' }, { label: 'Servizi', path: 'services/' }, { label: 'Contatti', path: 'contacts/' }];
 const current = Astro.url.pathname.replace(/\/$/, '');
 const isCurrent = (path: string) => current === url(path).replace(/\/$/, '');
@@ -14,7 +14,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#f4eff5" />
+    <meta name="theme-color" content="#bfb1c4" />
     <title>{title} | {site.title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
@@ -26,12 +26,11 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:image" content={new URL(url('images/hero.jpg'), Astro.site)} />
     <link rel="icon" type="image/svg+xml" href={url('favicon.svg')} />
   </head>
-  <body>
+  <body class:list={{ 'photo-header': photoHeader }}>
     <a class="skip-link" href="#contenuto">Vai al contenuto</a>
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href={url()} aria-label="Erika Masotti, pagina iniziale">
-          <span class="brand-mark" aria-hidden="true">em<span>•</span></span>
           <span><span class="brand-name">{site.title}</span><span class="brand-role">{site.role}</span></span>
         </a>
         <nav class="desktop-nav" aria-label="Navigazione principale">

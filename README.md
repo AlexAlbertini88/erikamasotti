@@ -1,6 +1,6 @@
 # Erika Masotti
 
-Sito statico in italiano realizzato con **Astro 5 e Tailwind CSS 4**, destinato a GitHub Pages. Non richiede database, server applicativi, React o credenziali nel codice. Non incorpora analytics, font remoti o widget esterni; email, telefono e WhatsApp si aprono solo quando il visitatore seleziona il relativo collegamento.
+Sito statico in italiano realizzato con **Astro 5 e Tailwind CSS 4**, destinato a GitHub Pages. Non richiede database, server applicativi, React o credenziali nel codice. Non incorpora analytics, font caricati da servizi remoti o widget esterni; email, telefono e WhatsApp si aprono solo quando il visitatore seleziona il relativo collegamento.
 
 ## Aggiornare il sito senza terminale
 
@@ -51,6 +51,6 @@ Per compilare per un dominio diverso puoi passare `SITE_URL` e `BASE_PATH`. Per 
 
 ## Accessibilità
 
-La struttura include lingua italiana, landmark, titoli gerarchici, testo alternativo, un collegamento per saltare la navigazione e focus visibile. Il menu mobile usa `details`/`summary` nativi e funziona senza JavaScript. Le animazioni rispettano `prefers-reduced-motion`; i font sono locali al sistema e i testi non sono sovrapposti alle fotografie.
+La struttura include lingua italiana, landmark, titoli gerarchici, testo alternativo, un collegamento per saltare la navigazione e focus visibile. Il menu mobile usa `details`/`summary` nativi e funziona senza JavaScript. Le animazioni rispettano `prefers-reduced-motion`; i font Fira Sans e Fira Sans Extra Condensed sono ospitati nel sito (licenze OFL in `public/fonts/`). I testi sulle fotografie sono protetti da una copertura nera al 62%, che mantiene il contrasto anche sulle aree più chiare. Lo sfondo lilla e la composizione fotografica riprendono il sito originale.
 
 I colori testuali principali hanno contrasto superiore a 4,5:1. Questo controllo dei colori e la compilazione non costituiscono una certificazione WCAG: restano da verificare nel browser zoom, navigazione da tastiera, lettori di schermo e impaginazione a diverse larghezze.

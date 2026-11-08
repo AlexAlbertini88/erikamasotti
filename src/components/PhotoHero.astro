@@ -1,0 +1,10 @@
+---
+import { url } from '../lib/urls';
+interface Props { image: string; quote: string; position?: string; }
+const { image, quote, position = 'center' } = Astro.props;
+---
+<section class="photo-hero" aria-labelledby="page-title">
+  <img class="hero-background" src={url(`images/${image}`)} alt="" style={{objectPosition: position}} fetchpriority="high" />
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="container photo-hero-copy"><h1 id="page-title">“{quote}”</h1></div>
+</section>

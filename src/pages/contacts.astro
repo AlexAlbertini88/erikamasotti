@@ -1,11 +1,14 @@
 ---
 import { getEntry, render } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+import PhotoHero from '../components/PhotoHero.astro';
+import ContactBanner from '../components/ContactBanner.astro';
 import site from '../content/site.json';
 const entry = (await getEntry('pages', 'contacts'))!;
 const { Content } = await render(entry);
 ---
 <Layout title="Contatti" description={entry.data.description}>
-  <section class="page-header"><div class="container"><p class="eyebrow">{entry.data.eyebrow}</p><h1>{entry.data.title}</h1><p class="lede">{site.appointment}.</p></div></section>
+  <PhotoHero image="contacts-hero.png" quote="Ogni percorso inizia da un incontro. Iniziamo dal nostro" />
   <section class="section"><div class="container contact-grid"><article class="prose"><Content /></article><div><dl class="contact-list"><div><dt>Email</dt><dd><a href={`mailto:${site.email}`}>{site.email}</a></dd></div><div><dt>Telefono</dt><dd><a href={`tel:${site.phoneLink}`}>{site.phone}</a></dd></div><div><dt>Messaggi</dt><dd><a href={site.whatsapp}>Scrivimi su WhatsApp</a></dd></div><div><dt>In presenza</dt><dd>{site.address}<small>Ricevimento su appuntamento. Consulenze disponibili anche online.</small></dd></div></dl></div></div></section>
+  <ContactBanner quote="Il mio approccio: costruire possibilità" />
 </Layout>

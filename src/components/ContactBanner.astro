@@ -1,10 +1,15 @@
 ---
 import { url } from '../lib/urls';
-import Arrow from './Arrow.astro';
+import site from '../content/site.json';
+interface Props { quote?: string; }
+const { quote = site.contactQuote } = Astro.props;
 ---
 <section class="contact-banner" aria-labelledby="contact-heading">
+  <img class="banner-background" src={url('images/incontro.jpg')} alt="" width="817" height="545" loading="lazy" />
+  <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container contact-banner-inner">
-    <div><p class="eyebrow">Un primo passo, insieme</p><h2 id="contact-heading">Non ti mostro la strada.<br />Ti aiuto a scoprire la tua.</h2><p>Uno spazio di ascolto, senza giudizi e senza impegno.</p></div>
-    <a class="button button-dark" href={url('contacts/')}>Parliamone insieme <Arrow /></a>
+    <h2 id="contact-heading">“{quote}”</h2>
+    <a class="button button-light" href={url('contacts/')}>Prenota una prima consulenza</a>
+    <p>Uno spazio di ascolto, senza giudizi e senza impegno.</p>
   </div>
 </section>
