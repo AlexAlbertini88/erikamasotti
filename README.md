@@ -24,13 +24,13 @@ Le informazioni pubblicate, inclusi email e telefono, sono pubbliche. Password e
 
 ## Pubblicazione
 
-Indirizzo iniziale previsto: **https://alexalbertini88.github.io/erikamasotti/**.
+Dominio di produzione: **https://erikamasotti.it/**. Il file `public/CNAME` viene copiato nella radice di `dist/` e conserva il dominio nella pubblicazione dal ramo `gh-pages`.
 
 La procedura in `.github/workflows/deploy.yml` verifica e genera il sito a ogni modifica su `main`, poi pubblica `dist/`. Per attivarla, seleziona **Settings → Pages → Source → GitHub Actions**. L’account che carica la procedura deve essere autorizzato anche a scrivere workflow. Non occorrono secret aggiuntivi: viene usato il `GITHUB_TOKEN` temporaneo fornito da GitHub Actions.
 
 Il primo test può essere pubblicato anche dal ramo `gh-pages`, contenente solo i file generati. In questo caso **le modifiche a `main` non aggiornano automaticamente il sito** finché non viene attivata la procedura GitHub Actions.
 
-Il dominio `erikamasotti.it` non va trasferito finché la nuova versione non è stata verificata. Per usare un dominio personalizzato occorre configurare GitHub Pages e il DNS; la procedura di compilazione legge il percorso corretto da Pages.
+GitHub Pages deve avere `erikamasotti.it` come dominio personalizzato. Su Aruba, i record A del dominio devono puntare a `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`; il CNAME `www` deve puntare a `alexalbertini88.github.io`. Conservare i record della posta. Dopo la propagazione del DNS, verificare la disponibilità del certificato e attivare Enforce HTTPS in Settings → Pages. La procedura GitHub Actions, quando attivata, legge il percorso corretto da Pages.
 
 ## Sviluppo
 
@@ -41,7 +41,7 @@ npm ci
 npm run dev
 ```
 
-Apri l’indirizzo stampato da Astro, includendo `/erikamasotti/`. Un indirizzo `localhost` di un ambiente cloud è raggiungibile soltanto tramite il browser dello stesso ambiente o un inoltro porte supportato; non è un’anteprima pubblica.
+Apri l’indirizzo stampato da Astro. Per ricompilare per il vecchio indirizzo di prova usa `SITE_URL=https://alexalbertini88.github.io BASE_PATH=/erikamasotti npm run build` e rimuovi `dist/CNAME` solo da quella pubblicazione alternativa. Un indirizzo `localhost` di un ambiente cloud è raggiungibile soltanto tramite il browser dello stesso ambiente o un inoltro porte supportato; non è un’anteprima pubblica.
 
 ```bash
 npm run check
