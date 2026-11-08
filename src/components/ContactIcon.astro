@@ -1,0 +1,7 @@
+---
+import { url } from '../lib/urls';
+const icons = { email: 'envelope-fill', phone: 'telephone-fill', instagram: 'instagram', linkedin: 'linkedin', whatsapp: 'whatsapp' };
+interface Props { name: keyof typeof icons; }
+const { name } = Astro.props;
+---
+<img class="contact-icon" src={url(`icons/${icons[name]}.svg`)} width="22" height="22" alt="" aria-hidden="true" loading="lazy" decoding="async" />

@@ -71,7 +71,7 @@ p { text-wrap: pretty; }
 .footer-name { font-family: var(--font-display); font-size: 1.8rem; text-decoration: none; }
 .footer-grid h2 { font-family: var(--font-sans); font-size: 1rem; font-weight: 600; margin-bottom: 1rem; }
 .footer-grid p, .footer-grid > div > a:not(.footer-name) { font-size: .9rem; }
-.footer-grid > div > a:not(.footer-name) { display: block; padding-block: .3rem; width: fit-content; }
+.footer-grid > div > a:not(.footer-name) { display: flex; align-items: center; gap: .65rem; padding-block: .3rem; width: fit-content; }
 .footer-grid .registration { max-width: 27rem; font-size: .8rem; margin-top: 1rem; }
 .footer-bottom { border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 2rem; padding-block: 1.3rem; font-size: .8rem; }
 .prose { max-width: 48rem; }
@@ -178,3 +178,5 @@ p { text-wrap: pretty; }
 .music-credit { font-size: .7rem; line-height: 1.4; margin-top: .35rem; }
 .site-footer { padding-bottom: 12rem; }
 @media print { .music-player { display: none; } .site-footer { padding-bottom: 0; } }
+
+.contact-icon { width: 22px; height: 22px; flex-shrink: 0; object-fit: contain; }
