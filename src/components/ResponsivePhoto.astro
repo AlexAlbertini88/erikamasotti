@@ -1,0 +1,16 @@
+---
+import { Image } from 'astro:assets';
+import { photos } from '../lib/photos';
+interface Props {
+  name: keyof typeof photos;
+  alt: string;
+  class?: string;
+  sizes?: string;
+  eager?: boolean;
+}
+const { name, alt, class: className, sizes = '100vw', eager = false } = Astro.props;
+const source = photos[name];
+const maxWidth = Math.min(source.width, 3200);
+const widths = [...[480, 768, 1024, 1280, 1600, 1920, 2560].filter(width => width < maxWidth), maxWidth];
+---
+<Image src={source} width={maxWidth} alt={alt} class={className} format="webp" quality={88} widths={widths} sizes={sizes} loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : undefined} />

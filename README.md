@@ -14,11 +14,11 @@ Dal repository su GitHub, apri il file desiderato, seleziona la matita **Edit**,
 | Servizi, progetti, sedi e orari | [src/content/pages/services.md](src/content/pages/services.md) |
 | Testo della pagina contatti | [src/content/pages/contacts.md](src/content/pages/contacts.md) |
 | Inquadrature degli sfondi hero (desktop e telefono) | [src/content/hero-images.json](src/content/hero-images.json) |
-| Fotografie | [public/images](public/images) |
+| Fotografie | [src/assets/photos](src/assets/photos) |
 
 Nei file `.md` scrivi normale testo: `##` introduce un titolo, `**testo**` indica il grassetto e `-` introduce un elemento di elenco. Conserva le informazioni tra le prime due righe `---` e l’identificatore `id="percorso"` nella pagina servizi.
 
-Nei file JSON conserva virgolette, parentesi e virgole. I controlli della compilazione segnalano gli errori di sintassi. Per cambiare una foto, carica un’immagine con lo stesso nome e controlla che la descrizione alternativa nel componente continui a descriverla correttamente. Le nuove immagini devono essere adatte alla pubblicazione e il testo alternativo deve rispecchiarne il contenuto.
+Nei file JSON conserva virgolette, parentesi e virgole. I controlli della compilazione segnalano gli errori di sintassi. Le fotografie originali sono in `src/assets/photos/`: Astro genera WebP a più risoluzioni, con una larghezza massima di 3200 pixel e senza ingrandire gli originali. Per cambiare una foto, carica un’immagine con lo stesso nome e controlla che la descrizione alternativa nel componente continui a descriverla correttamente. Le nuove immagini devono essere adatte alla pubblicazione e il testo alternativo deve rispecchiarne il contenuto.
 
 Le informazioni pubblicate, inclusi email e telefono, sono pubbliche. Password e chiavi private non devono mai essere inserite nel repository.
 

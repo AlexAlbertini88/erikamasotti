@@ -3,12 +3,12 @@ import { getEntry, render } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import PhotoHero from '../components/PhotoHero.astro';
 import ContactBanner from '../components/ContactBanner.astro';
-import { url } from '../lib/urls';
+import ResponsivePhoto from '../components/ResponsivePhoto.astro';
 const entry = (await getEntry('pages', 'about'))!;
 const { Content } = await render(entry);
 ---
 <Layout title="Chi sono" description={entry.data.description}>
   <PhotoHero photo="about" quote="Ogni bambino è un filo unico e prezioso: non va raddrizzato, ma collegato per farlo brillare" />
-  <section class="section"><div class="container article-grid"><article class="prose"><Content /></article><aside class="article-aside" aria-label="Erika Masotti"><img src={url('images/erika.jpg')} alt="Ritratto di Erika Masotti" width="762" height="1141" /><p>Esperienza educativa, ascolto e obiettivi comprensibili e raggiungibili.</p></aside></div></section>
+  <section class="section"><div class="container article-grid"><article class="prose"><Content /></article><aside class="article-aside" aria-label="Erika Masotti"><ResponsivePhoto name="about-portrait.png" alt="Ritratto di Erika Masotti in bianco e nero" sizes="(max-width: 760px) 360px, 320px" /><p>Esperienza educativa, ascolto e obiettivi comprensibili e raggiungibili.</p></aside></div></section>
   <ContactBanner quote="Non più ostacoli, ma strade da percorrere" />
 </Layout>

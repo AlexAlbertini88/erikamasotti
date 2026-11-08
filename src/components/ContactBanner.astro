@@ -1,11 +1,12 @@
 ---
 import { url } from '../lib/urls';
+import ResponsivePhoto from './ResponsivePhoto.astro';
 import site from '../content/site.json';
 interface Props { quote?: string; }
 const { quote = site.contactQuote } = Astro.props;
 ---
 <section class="contact-banner" aria-labelledby="contact-heading">
-  <img class="banner-background" src={url('images/incontro.jpg')} alt="" width="817" height="545" loading="lazy" />
+  <ResponsivePhoto class="banner-background" name="incontro.jpg" alt="" />
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container contact-banner-inner">
     <h2 id="contact-heading">“{quote}”</h2>

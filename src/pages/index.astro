@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ResponsivePhoto from '../components/ResponsivePhoto.astro';
 import ContactBanner from '../components/ContactBanner.astro';
 import PhotoHero from '../components/PhotoHero.astro';
 import home from '../content/home.json';
@@ -9,21 +10,21 @@ import { url } from '../lib/urls';
   <PhotoHero photo="home" quote={home.quote} />
   <section class="feature-section" aria-labelledby="connections-title">
     <div class="wide-container feature-grid">
-      <img class="feature-photo" src={url('images/erika.jpg')} alt="Erika Masotti" width="762" height="1141" loading="lazy" />
+      <ResponsivePhoto class="feature-photo" name="erika.jpg" alt="Erika Masotti" sizes="(max-width: 760px) 100vw, 50vw" />
       <div class="feature-copy"><h2 id="connections-title">“{home.aboutTitle} {home.aboutSubtitle}”</h2><p>{home.intro}</p><a class="button button-light" href={url('services/')}>Scopri di più<span class="sr-only"> sui servizi</span></a></div>
     </div>
   </section>
   <section class="feature-section" aria-labelledby="together-title">
     <div class="wide-container feature-grid feature-reverse">
       <div class="feature-copy"><h2 id="together-title">“{home.approachTitle}”</h2><p>{home.listeningIntro}</p><a class="button button-light" href={url('services/')}>Scopri di più<span class="sr-only"> sul percorso</span></a></div>
-      <img class="feature-photo" src={url('images/ascolto.png')} alt="Ritratto introspettivo di Erika in bianco e nero" width="709" height="1063" loading="lazy" />
+      <ResponsivePhoto class="feature-photo" name="ascolto.png" alt="Ritratto introspettivo di Erika in bianco e nero" sizes="(max-width: 760px) 100vw, 50vw" />
     </div>
   </section>
   <section class="section services-section" aria-labelledby="services-title">
     <div class="wide-container">
       <div class="section-intro"><h2 id="services-title">Un percorso costruito insieme</h2><p>{home.approachIntro}</p></div>
       <div class="service-layout">
-        <img class="services-photo" src={url('images/percorso.jpg')} alt="Erika Masotti, ritratta di profilo" width="618" height="942" loading="lazy" />
+        <ResponsivePhoto class="services-photo" name="percorso.jpg" alt="Erika Masotti, ritratta di profilo" sizes="(max-width: 760px) 100vw, 50vw" />
         <div class="services-grid">{home.services.map((service, i) => <article class="service-item"><span class="service-number" aria-hidden="true">0{i + 1}</span><h3>{service.title}</h3><p>{service.description}</p><ul>{service.points.map(point => <li>{point}</li>)}</ul></article>)}</div>
       </div>
     </div>

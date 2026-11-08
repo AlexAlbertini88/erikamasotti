@@ -1,12 +1,12 @@
 ---
-import { url } from '../lib/urls';
+import ResponsivePhoto from './ResponsivePhoto.astro';
 import heroes from '../content/hero-images.json';
 interface Props { photo: keyof typeof heroes; quote: string; }
 const { photo, quote } = Astro.props;
 const { image, desktopPosition, mobilePosition } = heroes[photo];
 ---
 <section class="photo-hero" aria-labelledby="page-title" style={{'--hero-position': desktopPosition, '--hero-mobile-position': mobilePosition}}>
-  <img class="hero-background" src={url(`images/${image}`)} alt="" fetchpriority="high" />
+  <ResponsivePhoto class="hero-background" name={image as keyof typeof import('../lib/photos').photos} alt="" eager />
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container photo-hero-copy"><h1 id="page-title">“{quote}”</h1></div>
 </section>
