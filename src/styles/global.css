@@ -151,3 +151,12 @@ p { text-wrap: pretty; }
 
 .contact-portrait { width: 100%; max-height: 850px; object-fit: contain; object-position: top; }
 .contact-page-copy { margin-top: 2.5rem; }
+
+.footer-bottom { flex-wrap: wrap; }
+.footer-legal { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; }
+.policy-page { max-width: 52rem; }
+.policy-updated { margin-top: 1.2rem; font-size: .9rem; }
+.policy-prose { margin-top: 2.5rem; max-width: none; }
+.policy-summary { padding: 1.25rem 1.5rem; border-left: 3px solid #49354f; background: rgb(255 255 255 / 20%); margin-bottom: 2.5rem; }
+.policy-summary p { margin: 0; }
+.contact-privacy { font-size: .9rem; margin-top: 1.25rem; }

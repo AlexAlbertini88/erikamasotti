@@ -6,11 +6,12 @@ import ContactBanner from '../components/ContactBanner.astro';
 import site from '../content/site.json';
 import WhatsAppIcon from '../components/WhatsAppIcon.astro';
 import ResponsivePhoto from '../components/ResponsivePhoto.astro';
+import { url } from '../lib/urls';
 const entry = (await getEntry('pages', 'contacts'))!;
 const { Content } = await render(entry);
 ---
 <Layout title="Contatti" description={entry.data.description}>
   <PhotoHero photo="contacts" quote="Ogni percorso inizia da un incontro. Iniziamo dal nostro" />
-  <section class="section"><div class="container contact-grid"><div><ResponsivePhoto name="contacts-portrait.png" class="contact-portrait" alt="Erika Masotti in un ritratto a colori" sizes="(max-width: 760px) 100vw, 480px" /></div><div><dl class="contact-list"><div><dt>Email</dt><dd><a href={`mailto:${site.email}`}>{site.email}</a></dd></div><div><dt>Telefono</dt><dd><a href={`tel:${site.phoneLink}`}>{site.phone}</a></dd></div><div><dt>Messaggi</dt><dd><a class="whatsapp-link" href={site.whatsapp}><WhatsAppIcon />Scrivimi su WhatsApp</a></dd></div><div><dt>In presenza</dt><dd class="appointment-note">{site.contactAppointment}<small>{site.contactOnline}</small></dd></div></dl><article class="prose contact-page-copy"><Content /></article></div></div></section>
+  <section class="section"><div class="container contact-grid"><div><ResponsivePhoto name="contacts-portrait.png" class="contact-portrait" alt="Erika Masotti in un ritratto a colori" sizes="(max-width: 760px) 100vw, 480px" /></div><div><dl class="contact-list"><div><dt>Email</dt><dd><a href={`mailto:${site.email}`}>{site.email}</a></dd></div><div><dt>Telefono</dt><dd><a href={`tel:${site.phoneLink}`}>{site.phone}</a></dd></div><div><dt>Messaggi</dt><dd><a class="whatsapp-link" href={site.whatsapp}><WhatsAppIcon />Scrivimi su WhatsApp</a></dd></div><div><dt>In presenza</dt><dd class="appointment-note">{site.contactAppointment}<small>{site.contactOnline}</small></dd></div></dl><p class="contact-privacy">Per informazioni sul trattamento dei dati inviati tramite i recapiti, consulta la <a href={url('privacy-policy/')}>Privacy policy</a>.</p><article class="prose contact-page-copy"><Content /></article></div></div></section>
   <ContactBanner quote="Il mio approccio: costruire possibilità" />
 </Layout>

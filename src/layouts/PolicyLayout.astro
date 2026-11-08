@@ -1,0 +1,15 @@
+---
+import Layout from './Layout.astro';
+interface Props { title: string; description: string; }
+const { title, description } = Astro.props;
+---
+<Layout title={title} description={description} photoHeader={false}>
+  <section class="section">
+    <div class="container policy-page">
+      <p class="eyebrow">Trasparenza e dati personali</p>
+      <h1>{title}</h1>
+      <p class="policy-updated">Ultimo aggiornamento: <time datetime="2026-11-08">8 novembre 2026</time></p>
+      <article class="prose policy-prose"><slot /></article>
+    </div>
+  </section>
+</Layout>

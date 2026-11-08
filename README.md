@@ -55,3 +55,10 @@ Per compilare per un dominio diverso puoi passare `SITE_URL` e `BASE_PATH`. Per 
 La struttura include lingua italiana, landmark, titoli gerarchici, testo alternativo, un collegamento per saltare la navigazione e focus visibile. Il menu mobile usa `details`/`summary` nativi e funziona senza JavaScript. Le animazioni rispettano `prefers-reduced-motion`; i font Fira Sans e Fira Sans Extra Condensed sono ospitati nel sito (licenze OFL in `public/fonts/`). I testi sulle fotografie sono protetti da una copertura nera al 62%, che mantiene il contrasto anche sulle aree più chiare. Lo sfondo lilla e la composizione fotografica riprendono il sito originale.
 
 I colori testuali principali hanno contrasto superiore a 4,5:1. Questo controllo dei colori e la compilazione non costituiscono una certificazione WCAG: restano da verificare nel browser zoom, navigazione da tastiera, lettori di schermo e impaginazione a diverse larghezze.
+
+
+## Cookie e privacy
+
+`/cookie-policy/` e `/privacy-policy/` descrivono la configurazione attuale e sono collegate nel footer. Non viene mostrato un banner di consenso: il sito non usa cookie applicativi, analytics, pixel, memoria locale o contenuti di terzi incorporati. I link social sono semplici collegamenti e i log di sicurezza del fornitore di hosting sono descritti separatamente.
+
+Prima di aggiungere mappe, video incorporati, moduli esterni o statistiche, rivalutare gli effetti sui dati personali e sui cookie. Gli strumenti che richiedono consenso devono essere bloccati prima della scelta e accompagnati da controlli per rifiutare e revocare, oltre che dall’aggiornamento delle informative. La privacy delle prestazioni professionali richiede informazioni separate da quelle della navigazione.
