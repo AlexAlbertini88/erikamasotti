@@ -1,0 +1,22 @@
+{
+  "home": {
+    "image": "hero.jpg",
+    "desktopPosition": "50% 55%",
+    "mobilePosition": "50% 55%"
+  },
+  "about": {
+    "image": "about-hero.jpg",
+    "desktopPosition": "50% 33%",
+    "mobilePosition": "35% 30%"
+  },
+  "services": {
+    "image": "services-hero.png",
+    "desktopPosition": "50% 32%",
+    "mobilePosition": "80% 28%"
+  },
+  "contacts": {
+    "image": "contacts-hero.png",
+    "desktopPosition": "50% 15%",
+    "mobilePosition": "50% 15%"
+  }
+}

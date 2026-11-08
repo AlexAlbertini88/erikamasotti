@@ -1,10 +1,12 @@
 ---
 import { url } from '../lib/urls';
-interface Props { image: string; quote: string; position?: string; }
-const { image, quote, position = 'center' } = Astro.props;
+import heroes from '../content/hero-images.json';
+interface Props { photo: keyof typeof heroes; quote: string; }
+const { photo, quote } = Astro.props;
+const { image, desktopPosition, mobilePosition } = heroes[photo];
 ---
-<section class="photo-hero" aria-labelledby="page-title">
-  <img class="hero-background" src={url(`images/${image}`)} alt="" style={{objectPosition: position}} fetchpriority="high" />
+<section class="photo-hero" aria-labelledby="page-title" style={{'--hero-position': desktopPosition, '--hero-mobile-position': mobilePosition}}>
+  <img class="hero-background" src={url(`images/${image}`)} alt="" fetchpriority="high" />
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container photo-hero-copy"><h1 id="page-title">“{quote}”</h1></div>
 </section>

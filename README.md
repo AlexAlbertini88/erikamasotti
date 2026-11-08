@@ -13,6 +13,7 @@ Dal repository su GitHub, apri il file desiderato, seleziona la matita **Edit**,
 | Presentazione e formazione | [src/content/pages/about.md](src/content/pages/about.md) |
 | Servizi, progetti, sedi e orari | [src/content/pages/services.md](src/content/pages/services.md) |
 | Testo della pagina contatti | [src/content/pages/contacts.md](src/content/pages/contacts.md) |
+| Inquadrature degli sfondi hero (desktop e telefono) | [src/content/hero-images.json](src/content/hero-images.json) |
 | Fotografie | [public/images](public/images) |
 
 Nei file `.md` scrivi normale testo: `##` introduce un titolo, `**testo**` indica il grassetto e `-` introduce un elemento di elenco. Conserva le informazioni tra le prime due righe `---` e l’identificatore `id="percorso"` nella pagina servizi.

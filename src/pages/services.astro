@@ -9,7 +9,7 @@ const entry = (await getEntry('pages', 'services'))!;
 const { Content } = await render(entry);
 ---
 <Layout title="Servizi e progetti" description={entry.data.description}>
-  <PhotoHero image="services-hero.png" quote="Lavoriamo insieme affinché tutti possano vincere la loro gara" />
+  <PhotoHero photo="services" quote="Lavoriamo insieme affinché tutti possano vincere la loro gara" />
   <section class="section"><div class="container article-grid"><article class="prose"><Content /></article><aside class="article-aside" aria-label="Informazioni sugli incontri"><img src={url('images/incontro.jpg')} alt="Mani di adulti e bambini unite insieme" width="817" height="545" loading="lazy" /><p><strong>Sportello sociale e laboratori</strong></p><p>{site.address}</p><p>{site.appointment}.</p><p><a class="text-link" href={url('contacts/')}>Chiedi informazioni</a></p></aside></div></section>
   <ContactBanner quote="Non esistono strade uguali, ma direzioni da scoprire" />
 </Layout>
