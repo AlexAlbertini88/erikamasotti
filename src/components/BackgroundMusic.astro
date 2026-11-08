@@ -2,7 +2,7 @@
 import music from '../content/music.json';
 import { url } from '../lib/urls';
 ---
-<aside class="music-player" aria-label="Musica di sottofondo" data-music-player data-initial-volume={music.initialVolume}>
+<aside transition:persist="site-music-player" class="music-player" aria-label="Musica di sottofondo" data-music-player data-initial-volume={music.initialVolume}>
   <audio id="site-music" controls controlslist="nodownload" loop preload="metadata" aria-label={`${music.title}, di ${music.author}`}>
     <source src={url(music.file)} type="audio/mpeg" />
     Il browser non supporta la riproduzione audio.
@@ -16,5 +16,7 @@ import { url } from '../lib/urls';
 </aside>
 <script>
   import { initMusicPlayer } from '../lib/music-player';
-  document.querySelectorAll<HTMLElement>('[data-music-player]').forEach(root => initMusicPlayer(root));
+  const initializeMusic = () => document.querySelectorAll<HTMLElement>('[data-music-player]').forEach(root => initMusicPlayer(root));
+  initializeMusic();
+  document.addEventListener('astro:page-load', initializeMusic);
 </script>

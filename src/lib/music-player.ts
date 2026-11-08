@@ -1,7 +1,9 @@
 const STORAGE_KEY = 'erika-music-session-v1';
+const initializedPlayers = new WeakSet<HTMLElement>();
 type MusicState = { paused: boolean; volume: number; time: number; pauseRequested?: boolean };
 
 export function initMusicPlayer(root: HTMLElement, browser: Window = window) {
+  if (initializedPlayers.has(root)) return;
   const audio = root.querySelector<HTMLAudioElement>('audio');
   const controls = root.querySelector<HTMLElement>('[data-music-controls]');
   const toggle = root.querySelector<HTMLButtonElement>('[data-music-toggle]');
@@ -9,6 +11,7 @@ export function initMusicPlayer(root: HTMLElement, browser: Window = window) {
   const volume = root.querySelector<HTMLInputElement>('[data-music-volume]');
   const status = root.querySelector<HTMLElement>('[data-music-status]');
   if (!audio || !controls || !toggle || !label || !volume || !status) return;
+  initializedPlayers.add(root);
 
   let navigating = false;
   let pending = false;

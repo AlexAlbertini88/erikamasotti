@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
 import BackgroundMusic from '../components/BackgroundMusic.astro';
 import ContactIcon from '../components/ContactIcon.astro';
 import { getImage } from 'astro:assets';
@@ -15,8 +16,9 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 const socialPhoto = await getImage({ src: photos['hero.jpg'], width: 1200, format: 'jpg', quality: 85 });
 ---
 <!doctype html>
-<html lang="it">
+<html lang="it" transition:animate="none">
   <head>
+    <ClientRouter fallback="swap" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#bfb1c4" />
