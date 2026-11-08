@@ -1,0 +1,7 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { url } from '../lib/urls';
+---
+<Layout title="Pagina non trovata" description="La pagina cercata non è disponibile.">
+  <section class="section"><div class="container prose"><p class="eyebrow">Errore 404</p><h1>Questa pagina non c’è.</h1><p class="mt-6">Il collegamento potrebbe essere cambiato. Puoi ripartire dalla pagina iniziale.</p><a class="button button-dark mt-6" href={url()}>Torna alla Home</a></div></section>
+</Layout>

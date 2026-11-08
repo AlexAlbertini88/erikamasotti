@@ -1,0 +1,13 @@
+---
+import { getEntry, render } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import ContactBanner from '../components/ContactBanner.astro';
+import { url } from '../lib/urls';
+const entry = (await getEntry('pages', 'about'))!;
+const { Content } = await render(entry);
+---
+<Layout title="Chi sono" description={entry.data.description}>
+  <section class="page-header"><div class="container"><p class="eyebrow">{entry.data.eyebrow}</p><h1>{entry.data.title}</h1><p class="lede">{entry.data.description}</p></div></section>
+  <section class="section"><div class="container article-grid"><article class="prose"><Content /></article><aside class="article-aside" aria-label="Erika Masotti"><img src={url('images/erika.jpg')} alt="Ritratto di Erika Masotti" width="762" height="1141" /><p>Esperienza educativa, ascolto e obiettivi comprensibili e raggiungibili.</p></aside></div></section>
+  <ContactBanner />
+</Layout>

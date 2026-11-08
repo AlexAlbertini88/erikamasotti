@@ -1,0 +1,10 @@
+---
+import { url } from '../lib/urls';
+import Arrow from './Arrow.astro';
+---
+<section class="contact-banner" aria-labelledby="contact-heading">
+  <div class="container contact-banner-inner">
+    <div><p class="eyebrow">Un primo passo, insieme</p><h2 id="contact-heading">Non ti mostro la strada.<br />Ti aiuto a scoprire la tua.</h2><p>Uno spazio di ascolto, senza giudizi e senza impegno.</p></div>
+    <a class="button button-dark" href={url('contacts/')}>Parliamone insieme <Arrow /></a>
+  </div>
+</section>

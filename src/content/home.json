@@ -1,0 +1,26 @@
+{
+  "eyebrow": "Assistenza sociale, famiglia e inclusione",
+  "title": "Ogni persona è unica. Anche il suo percorso.",
+  "intro": "Aiuto persone e famiglie a ritrovare connessioni, risorse e nuove possibilità. Ascolto, oriento e sostengo nei momenti di difficoltà.",
+  "quote": "Non puoi omologarti quando sei nato per distinguerti.",
+  "aboutTitle": "L’elettricista delle relazioni umane.",
+  "aboutSubtitle": "Non aggiusto fili. Creo connessioni.",
+  "aboutText": "Sono Erika, assistente sociale e mamma di quattro bambini. Nel mio lavoro unisco l’esperienza educativa all’ascolto, per costruire insieme obiettivi comprensibili e raggiungibili.",
+  "servicesTitle": "Un sostegno concreto, nella vita di ogni giorno.",
+  "servicesIntro": "Ogni percorso parte dall’ascolto e prende forma intorno alla persona, alla famiglia e ai contesti in cui vive.",
+  "services": [
+    { "title": "Coordinamento di servizi alla persona", "description": "Progettazione e coordinamento di percorsi educativi, sociali e inclusivi, in collaborazione con famiglie e territorio." },
+    { "title": "Affiancamento familiare", "description": "Supporto educativo a domicilio: routine familiari, organizzazione degli ambienti, gioco e tempo libero." },
+    { "title": "Sviluppo delle autonomie", "description": "Percorsi graduali per favorire cura personale, organizzazione e partecipazione alle attività quotidiane." },
+    { "title": "Supporto a scuola ed educatori", "description": "Confronto con il personale educativo, materiali condivisi e partecipazione ai GLO quando prevista." },
+    { "title": "Comunicazione e abilità sociali", "description": "Attività per sostenere richieste, scelte, interazioni e relazioni con adulti e coetanei." },
+    { "title": "Programmi ABA supervisionati", "description": "Applicazione degli obiettivi definiti dal professionista responsabile, con raccolta dati e confronto con il supervisore." }
+  ],
+  "approachTitle": "Non sai da dove cominciare? Cominciamo insieme.",
+  "approachIntro": "Credo che ogni persona debba sentirsi ascoltata, compresa e parte attiva delle proprie scelte.",
+  "steps": [
+    { "title": "Ci conosciamo", "text": "Un primo colloquio per ascoltare la richiesta, le priorità e i bisogni." },
+    { "title": "Costruiamo il percorso", "text": "Definiamo insieme obiettivi, contesti e modalità di collaborazione." },
+    { "title": "Facciamo il punto", "text": "Osserviamo i progressi e adattiamo il percorso alle esigenze che emergono." }
+  ]
+}
