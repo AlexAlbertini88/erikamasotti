@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import BackgroundMusic from '../components/BackgroundMusic.astro';
 import { getImage } from 'astro:assets';
 import { photos } from '../lib/photos';
 import site from '../content/site.json';
@@ -31,6 +32,7 @@ const socialPhoto = await getImage({ src: photos['hero.jpg'], width: 1200, forma
   </head>
   <body class:list={{ 'photo-header': photoHeader }}>
     <a class="skip-link" href="#contenuto">Vai al contenuto</a>
+    <BackgroundMusic />
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href={url()} aria-label="Erika Masotti, pagina iniziale">

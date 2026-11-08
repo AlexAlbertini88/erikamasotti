@@ -59,6 +59,13 @@ I colori testuali principali hanno contrasto superiore a 4,5:1. Questo controllo
 
 ## Cookie e privacy
 
-`/cookie-policy/` e `/privacy-policy/` descrivono la configurazione attuale e sono collegate nel footer. Non viene mostrato un banner di consenso: il sito non usa cookie applicativi, analytics, pixel, memoria locale o contenuti di terzi incorporati. I link social sono semplici collegamenti e i log di sicurezza del fornitore di hosting sono descritti separatamente.
+`/cookie-policy/` e `/privacy-policy/` descrivono la configurazione attuale e sono collegate nel footer. Non viene mostrato un banner di consenso: il sito non usa cookie applicativi, analytics, pixel o contenuti di terzi incorporati. Il solo sessionStorage tecnico del lettore musicale conserva pausa, volume e posizione per la sessione della scheda. I link social sono semplici collegamenti e i log di sicurezza del fornitore di hosting sono descritti separatamente.
 
 Prima di aggiungere mappe, video incorporati, moduli esterni o statistiche, rivalutare gli effetti sui dati personali e sui cookie. Gli strumenti che richiedono consenso devono essere bloccati prima della scelta e accompagnati da controlli per rifiutare e revocare, oltre che dall’aggiornamento delle informative. La privacy delle prestazioni professionali richiede informazioni separate da quelle della navigazione.
+
+
+## Musica di sottofondo
+
+`src/content/music.json` identifica il brano, il credito e il volume iniziale. Il file MP3 fornito dall’utente è ospitato in `public/audio/` e usato come sottofondo del progetto, senza un servizio esterno incorporato. La verifica della licenza e i suoi limiti sono documentati in `licenses/music.md`: il file conserva byte e metadati originali. Il credito non trasferisce la proprietà della registrazione.
+
+Il lettore tenta l’avvio a volume basso; rispetta il blocco dell’autoplay e propone un pulsante esplicito per riprodurre. Non sfrutta clic su altre parti della pagina per avviare l’audio. Pausa e volume sono sempre accessibili. Le impostazioni e la posizione si conservano soltanto nella sessione della scheda e l’audio viene fermato lasciando la pagina. In assenza di JavaScript rimangono disponibili i controlli audio nativi, senza avvio automatico. Le restrizioni del browser possono richiedere di premere Riproduci anche su una pagina successiva.
