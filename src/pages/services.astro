@@ -11,6 +11,6 @@ const { Content } = await render(entry);
 ---
 <Layout title="Servizi e progetti" description={entry.data.description}>
   <PhotoHero photo="services" quote="Lavoriamo insieme affinché tutti possano vincere la loro gara" />
-  <section class="section"><div class="container article-grid"><article class="prose"><Content /></article><aside class="article-aside" aria-label="Informazioni sugli incontri"><ResponsivePhoto name="services-hero.png" alt="Erika Masotti in blazer bianco" sizes="(max-width: 760px) 360px, 320px" /><p><strong>Sportello sociale e laboratori</strong></p><p>{site.address}</p><p>{site.appointment}.</p><p><a class="text-link" href={url('contacts/')}>Chiedi informazioni</a></p></aside></div></section>
+  <section class="section"><div class="container article-grid"><article class="prose"><Content /></article><aside class="article-aside article-aside--services" aria-label="Informazioni sugli incontri"><ResponsivePhoto name="services-hero.png" alt="Erika Masotti in blazer bianco" sizes="(max-width: 760px) 100vw, (max-width: 1050px) 42vw, 420px" /><p><strong>Sportello sociale e laboratori</strong></p><p>{site.address}</p><p>{site.appointment}.</p><p><a class="text-link" href={url('contacts/')}>Chiedi informazioni</a></p></aside></div></section>
   <ContactBanner quote="Non esistono strade uguali, ma direzioni da scoprire" />
 </Layout>
