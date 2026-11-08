@@ -50,12 +50,17 @@ const socialPhoto = await getImage({ src: photos['hero.jpg'], width: 1200, forma
         </details>
       </div>
     </header>
+    <script>
+      import { initializeSocialAppLinks } from '../lib/social-app-links';
+      initializeSocialAppLinks();
+      document.addEventListener('astro:page-load', () => initializeSocialAppLinks());
+    </script>
     <main id="contenuto" tabindex="-1"><slot /></main>
     <footer class="site-footer">
       <div class="container footer-grid">
         <div><a class="footer-name" href={url()}>{site.title}</a><p>Assistenza sociale, famiglia e inclusione.</p><p class="registration">{site.registration}</p></div>
         <div><h2>Restiamo in contatto</h2><a href={`mailto:${site.email}`}><ContactIcon name="email" /><span>{site.email}</span></a><a href={`tel:${site.phoneLink}`}><ContactIcon name="phone" /><span>{site.phone}</span></a></div>
-        <div><h2>Seguimi</h2><a href={site.instagram}><ContactIcon name="instagram" /><span>Instagram</span></a><a href={site.linkedin}><ContactIcon name="linkedin" /><span>LinkedIn</span></a><a href={site.whatsapp}><ContactIcon name="whatsapp" /><span>WhatsApp</span></a></div>
+        <div><h2>Seguimi</h2><a href={site.instagram} data-social-app="instagram" data-app-web-url={site.instagram} data-astro-reload><ContactIcon name="instagram" /><span>Instagram</span></a><a href={site.linkedin} data-social-app="linkedin" data-app-web-url={site.linkedin} data-astro-reload><ContactIcon name="linkedin" /><span>LinkedIn</span></a><a href={site.whatsapp}><ContactIcon name="whatsapp" /><span>WhatsApp</span></a></div>
       </div>
       <div class="container footer-bottom"><p>© {new Date().getFullYear()} {site.title}. Tutti i diritti riservati.</p><nav class="footer-legal" aria-label="Informative"><a href={url('privacy-policy/')}>Privacy policy</a><a href={url('cookie-policy/')}>Cookie policy</a></nav><a href="#contenuto">Torna al contenuto ↑</a></div>
     </footer>

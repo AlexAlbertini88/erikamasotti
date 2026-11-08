@@ -43,6 +43,8 @@ export function initMusicPlayer(root: HTMLElement, browser: Window = window) {
   };
   const sync = () => {
     label.textContent = audio.paused ? 'Riproduci musica' : 'Pausa musica';
+    toggle.title = label.textContent;
+    root.dataset.playing = String(!audio.paused);
     toggle.setAttribute('aria-pressed', String(!audio.paused));
   };
   const start = async () => {
@@ -98,6 +100,7 @@ export function initMusicPlayer(root: HTMLElement, browser: Window = window) {
   });
 
   audio.controls = false;
+  audio.hidden = true;
   controls.hidden = false;
   sync();
   if (pauseRequested) status.textContent = 'Musica in pausa.';
