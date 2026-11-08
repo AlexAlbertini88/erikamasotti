@@ -160,3 +160,9 @@ p { text-wrap: pretty; }
 .policy-summary { padding: 1.25rem 1.5rem; border-left: 3px solid #49354f; background: rgb(255 255 255 / 20%); margin-bottom: 2.5rem; }
 .policy-summary p { margin: 0; }
 .contact-privacy { font-size: .9rem; margin-top: 1.25rem; }
+
+.contact-photo { align-self: start; }
+@media (min-width: 761px) {
+  .contact-photo { position: sticky; top: 1.5rem; }
+  .contact-portrait { max-height: calc(100svh - 3rem); }
+}
