@@ -1,5 +1,5 @@
 const STORAGE_KEY = 'erika-music-session-v1';
-type MusicState = { paused: boolean; volume: number; time: number };
+type MusicState = { paused: boolean; volume: number; time: number; pauseRequested?: boolean };
 
 export function initMusicPlayer(root: HTMLElement, browser: Window = window) {
   const audio = root.querySelector<HTMLAudioElement>('audio');
@@ -18,6 +18,8 @@ export function initMusicPlayer(root: HTMLElement, browser: Window = window) {
     if (value && typeof value.paused === 'boolean' && Number.isFinite(value.volume) && value.volume >= 0 && value.volume <= 1 && Number.isFinite(value.time) && value.time >= 0) saved = value;
   } catch { /* The player also works when session storage is disabled. */ }
 
+  // A blocked autoplay attempt is not an explicit request for silence.
+  let pauseRequested = saved?.pauseRequested === true;
   const initialVolume = Number(root.dataset.initialVolume);
   audio.volume = saved?.volume ?? (Number.isFinite(initialVolume) ? Math.max(0, Math.min(1, initialVolume)) : 0.15);
   volume.value = String(Math.round(audio.volume * 100));
@@ -33,7 +35,7 @@ export function initMusicPlayer(root: HTMLElement, browser: Window = window) {
   const save = () => {
     if (navigating) return;
     try {
-      browser.sessionStorage.setItem(STORAGE_KEY, JSON.stringify({ paused: audio.paused, volume: audio.volume, time: Number.isFinite(audio.currentTime) ? audio.currentTime : 0 }));
+      browser.sessionStorage.setItem(STORAGE_KEY, JSON.stringify({ paused: audio.paused, pauseRequested, volume: audio.volume, time: Number.isFinite(audio.currentTime) ? audio.currentTime : 0 }));
     } catch { /* Unavailable storage must not block playback or pause. */ }
   };
   const sync = () => {
@@ -58,8 +60,8 @@ export function initMusicPlayer(root: HTMLElement, browser: Window = window) {
   };
 
   toggle.addEventListener('click', () => {
-    if (audio.paused) void start();
-    else audio.pause();
+    if (audio.paused) { pauseRequested = false; void start(); }
+    else { pauseRequested = true; audio.pause(); }
   });
   volume.addEventListener('input', () => {
     audio.volume = Math.max(0, Math.min(1, Number(volume.value) / 100));
@@ -86,7 +88,8 @@ export function initMusicPlayer(root: HTMLElement, browser: Window = window) {
     // Respect the latest pause choice, including when returning from another page.
     try {
       const latest = JSON.parse(browser.sessionStorage.getItem(STORAGE_KEY) || 'null');
-      if (latest?.paused === false) void start();
+      pauseRequested = latest?.pauseRequested === true;
+      if (!pauseRequested) void start();
       else { status.textContent = 'Musica in pausa.'; sync(); }
     } catch { status.textContent = 'Musica in pausa.'; sync(); }
   });
@@ -94,6 +97,6 @@ export function initMusicPlayer(root: HTMLElement, browser: Window = window) {
   audio.controls = false;
   controls.hidden = false;
   sync();
-  if (saved?.paused === true) status.textContent = 'Musica in pausa.';
+  if (pauseRequested) status.textContent = 'Musica in pausa.';
   else void start(); // Browsers may deny this; only the music button retries it.
 }
